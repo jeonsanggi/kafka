@@ -17,7 +17,7 @@ public class ConsumerWakeup {
     public static final Logger logger = LoggerFactory.getLogger(ConsumerWakeup.class.getName());
     public static void main(String[] args) {
 
-        String topicName = "simple-topic";
+        //String topicName = "simple-topic";
 
         Properties props = new Properties();
         props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.56.101:9092");
@@ -29,7 +29,7 @@ public class ConsumerWakeup {
         props.setProperty(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, "600000");
 
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(props);
-        kafkaConsumer.subscribe(List.of(topicName));
+        kafkaConsumer.subscribe(List.of("topic-p3-t1", "topic-p3-t2"));
 
         Thread mainThread = Thread.currentThread();
 
